@@ -115,23 +115,9 @@ body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f
 .recommend-item p { font-size: 14px; margin-bottom: 12px; color: #444; }
 
 /* Custom SweetAlert Styling */
-.custom-swal-popup {
-    border: 2px solid #000;   /* Black border */
-    border-radius: 10px;      /* Rounded edges */
-}
-
-.custom-swal-btn {
-    background: #fff !important;
-    color: #000 !important;
-    border: 2px solid #000 !important;
-    border-radius: 5px !important;
-    padding: 6px 14px !important;
-    font-weight: 600;
-}
-.custom-swal-btn:hover {
-    background: #000 !important;
-    color: #fff !important;
-}
+.custom-swal-popup { border: 2px solid #000;  /* Black border */ border-radius: 10px; /* Rounded edges */}
+.custom-swal-btn { background: #fff !important; color: #000 !important; border: 2px solid #000 !important; border-radius: 5px !important; padding: 6px 14px !important; font-weight: 600;}
+.custom-swal-btn:hover { background: #000 !important; color: #fff !important; }
 
 /* Footer */
 .footer { background: #111; color: #fff; text-align: center; padding: 40px 20px; margin-top: 60px;}
@@ -140,6 +126,10 @@ body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f
 .footer .social-links a { margin: 0 12px; color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s;}
 .footer .social-links a:hover { color: #ccc;}
 .footer .copy { margin-top: 20px; font-size: 12px; color: #aaa;}
+
+.qty-box { display: flex; align-items: center; margin-top: 20px; }
+.qty-box button { width: 32px; height: 32px; font-size: 18px; border: 1px solid #000; background: #fff; cursor: pointer; border-radius: 4px;}
+.qty-box input { width: 60px; text-align: center; margin: 0 8px; padding: 6px; border: 1px solid #000; border-radius: 4px;}
 
 </style>
 
@@ -212,15 +202,20 @@ body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f
     <input type="hidden" name="name" value="<?= htmlspecialchars($product['name']) ?>">
     <input type="hidden" name="price" value="<?= $product['price'] ?>">
     <input type="hidden" name="image" value="<?= $product['image'] ?>">
-    <!-- importante: name="add_to_cart" -->
+
+    <!-- Quantity Box -->
+    <div class="qty-box">
+        <button type="button" onclick="changeQty(-1)">-</button>
+        <input type="number" id="qtyInput" name="qty" value="1" min="1">
+        <button type="button" onclick="changeQty(1)">+</button>
+    </div>
+
+    <!-- Add to Cart -->
     <button type="submit" name="add_to_cart" value="1" class="add-to-cart-btn">
         ADD TO CART
-    </button>
+        </button>
+    </form>
 </form>
-
-</form>
-
-
 
     </div>
 </div>
@@ -351,7 +346,12 @@ document.querySelectorAll('.add-to-cart-form').forEach(form => {
     });
 });
 
+function changeQty(val){
+    let input = document.getElementById("qtyInput");
+    let newVal = parseInt(input.value) + val;
+    if(newVal < 1) newVal = 1;
+    input.value = newVal;
+}
 </script>
-
 </body>
 </html>

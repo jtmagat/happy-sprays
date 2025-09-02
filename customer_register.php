@@ -71,15 +71,102 @@ body {
 .sub-nav a { margin: 0 20px; text-decoration: none; color: #000; font-size: 16px;}
 .sub-nav a:hover { color: #555;}
 /* Register Form */
-.register-container { background: #f5f5f5; padding: 40px; border-radius: 12px; width: 360px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; margin: 150px auto 0;}
-.register-container h2 { margin-bottom: 20px; font-size: 28px; font-weight: bold;}
-.register-container input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;}
-.register-container button { width: 100%; padding: 12px; border: 1px solid #000; border-radius: 8px; background: #fff; font-weight: bold; cursor: pointer; transition: 0.3s;}
-.register-container button:hover { background: #000; color: #fff;}
-.msg { color: red; font-size: 14px; margin-bottom: 10px;}
-.extra-links { margin-top: 15px; font-size: 14px;}
-.extra-links a { color: #000; text-decoration: none;}
-.extra-links a:hover { text-decoration: underline;}
+.register-container { 
+  background: #f5f5f5; 
+  padding: 40px; 
+  border-radius: 12px; 
+  width: 360px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  text-align: center; 
+  margin: 150px auto 60px; /* 🔹 may spacing na sa baba */
+}
+.register-container h2 { 
+  margin-bottom: 20px; 
+  font-size: 28px; 
+  font-weight: bold;
+}
+.register-container input { 
+  width: 100%; 
+  padding: 12px; 
+  margin: 10px 0; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  font-size: 14px;
+}
+.register-container button { 
+  width: 100%; 
+  padding: 12px; 
+  border: 1px solid #000; 
+  border-radius: 8px; 
+  background: #fff; 
+  font-weight: bold; 
+  cursor: pointer; 
+  transition: 0.3s;
+}
+.register-container button:hover { 
+  background: #000; 
+  color: #fff;
+}
+.msg { 
+  color: red; 
+  font-size: 14px; 
+  margin-bottom: 10px;
+}
+.extra-links { 
+  margin-top: 15px; 
+  font-size: 14px;
+}
+.extra-links a { 
+  color: #000; 
+  text-decoration: none;
+}
+.extra-links a:hover { 
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background: #e9e9e9ff;
+    border-top: 1px solid #eee;
+    padding: 60px 20px 40px; /* 🔹 dagdag top padding */
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+.footer-columns {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 20px;
+}
+.footer-columns h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000;
+}
+.footer-columns a {
+    display: block;
+    text-decoration: none;
+    color: #555;
+    margin: 5px 0;
+}
+.footer-columns a:hover {
+    color: #000;
+}
+.social-icons {
+    margin-top: 15px;
+}
+.social-icons a {
+    margin: 0 8px;
+    color: #555;
+    text-decoration: none;
+    font-size: 18px;
+}
+.social-icons a:hover {
+    color: #000;
+}
+
 </style>
 </head>
 <body>
@@ -135,5 +222,27 @@ body {
       <a href="customer_login.php">Already have an account? Login</a>
     </div>
   </div>
+
+  <!-- Footer -->
+<footer>
+    <div class="footer-columns">
+        <div>
+            <h4>Company</h4>
+            <a href="about.php">About</a>
+            <a href="reviews.php">Reviews</a>
+        </div>
+        <div>
+            <h4>Customer Service</h4>
+            <a href="contact.php">Contact</a>
+            <a href="faq.php">FAQ</a>
+        </div>
+    </div>
+  <div class="social-icons">
+    <a href="social.php?page=facebook">Facebook</a>
+    <a href="social.php?page=instagram">Instagram</a>
+</div>
+
+    <p>© 2025 Happy Sprays. All rights reserved.</p>
+</footer>
 </body>
 </html>

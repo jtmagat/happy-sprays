@@ -154,6 +154,43 @@ footer {
 }
 
 
+footer {
+    background: #e9e9e9;
+    border-top: 1px solid #eee;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-top: 60px;
+}
+.footer-columns {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 20px;
+}
+.footer-columns h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000;
+}
+.footer-columns a {
+    display: block;
+    text-decoration: none;
+    color: #555;
+    margin: 5px 0;
+}
+.footer-columns a:hover { color: #000; }
+.social-icons { margin-top: 15px; }
+.social-icons a {
+    margin: 0 8px;
+    color: #555;
+    text-decoration: none;
+    font-size: 18px;
+}
+.social-icons a:hover { color: #000; }
+
   </style>
 </head>
 <body>
@@ -179,10 +216,27 @@ footer {
       <img id="popup-img" src="" alt="Review">
     </div>
   </div>
-
-  <footer>
-    &copy; <?= date("Y") ?> Happy Sprays. All rights reserved.
-  </footer>
+  
+<!-- Footer -->
+<footer>
+    <div class="footer-columns">
+        <div>
+            <h4>Company</h4>
+            <a href="about.php">About</a>
+            <a href="reviews.php">Reviews</a>
+        </div>
+        <div>
+            <h4>Customer Service</h4>
+            <a href="faq.php">FAQ</a>
+            <a href="index.php#contact">Contact</a>
+        </div>
+    </div>
+    <div class="social-icons">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+    </div>
+    <p>© 2025 Happy Sprays. All rights reserved.</p>
+</footer>
 
   <script>
     function openPopup(src) {

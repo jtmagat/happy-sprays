@@ -31,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->fetch();
 
             if (password_verify($password, $hashed)) {
-                // ✅ Login success
                 $_SESSION['user_id'] = $id;
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = $role;
@@ -57,7 +56,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     background: #fff;
-    color: #000;
+    color: #333;
 }
 
 /* Top Navbar */
@@ -141,7 +140,7 @@ body {
     width: 360px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
-    margin: 150px auto 0;
+    margin: 150px auto 60px;
 }
 .login-container h2 {
     margin-bottom: 20px;
@@ -186,15 +185,58 @@ body {
 .extra-links a:hover {
     text-decoration: underline;
 }
+
+/* Footer */
+footer {
+    background: #e9e9e9ff;
+    border-top: 1px solid #eee;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 14px;s
+    color: #555;
+}
+.footer-columns {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 20px;
+}
+.footer-columns h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000;
+}
+.footer-columns a {
+    display: block;
+    text-decoration: none;
+    color: #555;
+    margin: 5px 0;
+}
+.footer-columns a:hover {
+    color: #000;
+}
+.social-icons {
+    margin-top: 15px;
+}
+.social-icons a {
+    margin: 0 8px;
+    color: #555;
+    text-decoration: none;
+    font-size: 18px;
+}
+.social-icons a:hover {
+    color: #000;
+}
 </style>
 <script>
 function validateEmail() {
     const email = document.getElementById('email').value;
     if (!email.includes('@')) {
         alert('Please enter a valid email address containing "@"');
-        return false; // prevent form submission
+        return false;
     }
-    return true; // allow form submission
+    return true;
 }
 </script>
 </head>
@@ -218,7 +260,6 @@ function validateEmail() {
             </svg>
         </a>
         <?php if(isset($_SESSION['user_id'])): ?>
-            <!-- ✅ Logged in -->
             <a href="customer_dashboard.php" class="profile-link" title="My Account">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -227,7 +268,6 @@ function validateEmail() {
                 </svg>
             </a>
         <?php else: ?>
-            <!-- ❌ Not logged in -->
             <a href="customer_login.php" class="profile-link" title="Login">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -262,5 +302,27 @@ function validateEmail() {
         <a href="customer_register.php">Sign up</a>
     </div>
 </div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-columns">
+        <div>
+            <h4>Company</h4>
+            <a href="about.php">About</a>
+            <a href="reviews.php">Reviews</a>
+        </div>
+        <div>
+            <h4>Customer Service</h4>
+            <a href="contact.php">Contact</a>
+            <a href="faq.php">FAQ</a>
+        </div>
+    </div>
+ <div class="social-icons">
+    <a href="social.php?page=facebook">Facebook</a>
+    <a href="social.php?page=instagram">Instagram</a>
+</div>
+
+    <p>© 2025 Happy Sprays. All rights reserved.</p>
+</footer>
 </body>
 </html>

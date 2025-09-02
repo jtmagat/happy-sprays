@@ -308,15 +308,6 @@ h1 {text-align:center; margin:30px 0;}
 .poster-block img {width: 50%; height: auto; border-radius: 8px; margin-bottom: 15px;}
 .poster-text h2 {font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #000;}
 
-.contact-section {max-width: 600px; margin: 50px auto; text-align: center; padding: 20px;}
-.contact-section h1 {font-family: 'Playfair Display', serif; margin-bottom: 20px;}
-.contact-links {margin-bottom: 20px; font-size: 18px;}
-.contact-links a {margin: 0 10px; text-decoration: none; color: #000; font-weight: bold; transition: color 0.3s;}
-.contact-links a:hover {color: #555;}
-.contact-form input, .contact-form textarea {width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #000; border-radius: 5px; font-family: inherit;}
-.contact-form button {padding: 10px 20px; border: none; background: #000; color: #fff; cursor: pointer; border-radius: 5px; transition: 0.3s;}
-.contact-form button:hover {background: #444;}
-
 /* CSS */
 .reviews-btn {
   display: inline-block;
@@ -502,6 +493,43 @@ footer {text-align:center; padding:20px 0; border-top:1px solid #000; margin-top
   100% { opacity: 0.2; }
 }
 
+footer {
+    background: #e9e9e9;
+    border-top: 1px solid #eee;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-top: 60px;
+}
+.footer-columns {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 20px;
+}
+.footer-columns h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000;
+}
+.footer-columns a {
+    display: block;
+    text-decoration: none;
+    color: #555;
+    margin: 5px 0;
+}
+.footer-columns a:hover { color: #000; }
+.social-icons { margin-top: 15px; }
+.social-icons a {
+    margin: 0 8px;
+    color: #555;
+    text-decoration: none;
+    font-size: 18px;
+}
+.social-icons a:hover { color: #000; }
+
 </style>
 
 </head>
@@ -562,7 +590,7 @@ footer {text-align:center; padding:20px 0; border-top:1px solid #000; margin-top
     <a href="index.php">HOME</a>
     <a href="index.php?gender=Male">For Him</a>
     <a href="index.php?gender=Female">For Her</a>
-    <a href="#contact">CONTACT</a>
+    <a href="contact.php">CONTACT</a>
     <a href="reviews.php">REVIEWS</a>
 </div>
 
@@ -686,30 +714,27 @@ echo "
 
 </div>
 
-<!-- Contact Section -->
-<section class="contact-section" id="contact">
-    <h1>Contact Us</h1>
-    <div class="contact-links">
-        <a href="https://www.facebook.com/thethriftbytf" target="_blank">Facebook</a> | 
-        <a href="https://www.instagram.com/thehappysprays/" target="_blank">Instagram</a>
-    </div>
-    <form action="contact_submit.php" method="post" class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-</section>
-
-
-<!-- Sa pinaka-baba ng index.php -->
-<div style="text-align:center; margin: 60px 0;">
-  <a href="reviews.php" class="reviews-btn">See Previous Reviews</a>
-</div>
-
-
 <!-- Footer -->
-<footer>© 2025 Happy Sprays. All rights reserved.</footer>
+<footer>
+    <div class="footer-columns">
+        <div>
+            <h4>Company</h4>
+            <a href="about.php">About</a>
+            <a href="reviews.php">Reviews</a>
+        </div>
+        <div>
+            <h4>Customer Service</h4>
+            <a href="faq.php">FAQ</a>
+            <a href="contact.php">Contact</a>
+        </div>
+    </div>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/thethriftbytf">Facebook</a>
+        <a href="https://www.instagram.com/thehappysprays/">Instagram</a>
+    </div>
+    <p>© 2025 Happy Sprays. All rights reserved.</p>
+</footer>
+
 <!-- SweetAlert2 CDN -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

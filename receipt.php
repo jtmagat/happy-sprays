@@ -49,8 +49,7 @@ $items = $conn->query("SELECT * FROM order_items WHERE order_id=$order_id");
         <img src="images/happysprayslogo1.png" alt="Logo">
         <h1>Happy Sprays Official</h1>
         <div class="store-info">
-            📍 123 Sample Street, Manila <br>
-            📞 0912-345-6789 | ✉️ support@happysprays.com
+            📞 0945-103-8854 | ✉️ support@happysprays.com
         </div>
         <hr>
     </div>
