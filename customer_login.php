@@ -12,6 +12,11 @@ if($conn->connect_error){
 
 $msg = "";
 
+// Check if redirected from checkout
+if(isset($_GET['redirect']) && $_GET['redirect'] === 'checkout'){
+    $_SESSION['redirect_after_login'] = 'checkout.php';
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -31,11 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->fetch();
 
             if (password_verify($password, $hashed)) {
+                // Set session variables
                 $_SESSION['user_id'] = $id;
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = $role;
 
-                header("Location: customer_dashboard.php"); 
+                // Redirect to previous page if set
+                $redirect = $_SESSION['redirect_after_login'] ?? 'customer_dashboard.php';
+                unset($_SESSION['redirect_after_login']); // clear after redirect
+                header("Location: $redirect"); 
                 exit;
             } else {
                 $msg = "Invalid password.";
@@ -58,7 +67,6 @@ body {
     background: #fff;
     color: #333;
 }
-
 /* Top Navbar */
 .top-nav {
     position: fixed;
@@ -105,7 +113,6 @@ body {
 .icon-btn:hover svg, .cart-link:hover svg, .profile-link:hover svg {
     stroke: #555;
 }
-
 /* Sub Navbar */
 .sub-nav {
     position: fixed;
@@ -131,7 +138,6 @@ body {
 .sub-nav a:hover {
     color: #555;
 }
-
 /* Login Form */
 .login-container {
     background: #f5f5f5;
@@ -185,14 +191,13 @@ body {
 .extra-links a:hover {
     text-decoration: underline;
 }
-
 /* Footer */
 footer {
     background: #e9e9e9ff;
     border-top: 1px solid #eee;
     padding: 40px 20px;
     text-align: center;
-    font-size: 14px;s
+    font-size: 14px;
     color: #555;
 }
 .footer-columns {
